@@ -13,3 +13,15 @@ let choice = ["rock", "paper", "scissors"];
 let cpu = choice[Math.floor(Math.random()*choice.length)]; //random computer choice. used .length so I can add additional options in the future without changing this line.
     cpu = cpu.toLowerCase(); // array is already lowercase so not entirely necessary
     console.log("Computer Choice " + cpu);    
+
+    /*------Game Logic-------*/
+    if (user === cpu){
+        console.log("Tie");
+    }
+
+    else if ((user === "rock" && cpu === "scissors") ||
+            (user === "paper" && cpu === "rock") ||
+            (user === "scissors" && cpu === "paper")){
+                console.log("Player Wins")
+                return(userScore++);
+            }
