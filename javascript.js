@@ -37,3 +37,28 @@ let cpu = choice[Math.floor(Math.random()*choice.length)]; //random computer cho
         console.log("Oops!")
     }        
 }
+
+/*--------------Game Scoring------------*/
+function game(){
+    for(let i = 1; i < 6; i++){//5 round game
+        playRound();
+        console.log(userScore, cpuScore);
+}
+/*-------End Game Message--------*/
+    if(userScore > cpuScore) {
+        console.log("Player Wins Game");
+        alert("Congratulations! You Win");
+    }
+
+    else if (cpuScore > userScore) {
+        console.log("Computer Wins Game");
+        alert("Sorry! You Lose");
+    }
+
+    else {
+        console.log("Tie")
+        alert("Game ends in a tie!")
+    }
+} 
+
+game();
