@@ -2,7 +2,7 @@
 let userScore = 0; //keeps track of player score
 let cpuScore = 0; //keeps track of computer score
 
-function playRound ()
+function playRound (){
 /*---------Player Selection Code---------*/
 let user = prompt("Enter Rock, Paper, or Scissors. \n 5-round match");
     user = user.toLowerCase(); // makes user input case-insensitive
@@ -20,8 +20,20 @@ let cpu = choice[Math.floor(Math.random()*choice.length)]; //random computer cho
     }
 
     else if ((user === "rock" && cpu === "scissors") ||
-            (user === "paper" && cpu === "rock") ||
-            (user === "scissors" && cpu === "paper")){
+             (user === "paper" && cpu === "rock") ||
+             (user === "scissors" && cpu === "paper")){
                 console.log("Player Wins")
                 return(userScore++);
             }
+
+    else if ((user === "rock" && cpu === "paper") ||
+             (user === "paper" && cpu === "scissors") ||
+             (user === "scissors" && cpu === "rock")){
+                console.log("Computer Wins")
+                return(cpuScore++);
+            }        
+
+    else {
+        console.log("Oops!")
+    }        
+}
