@@ -4,9 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="./javascript.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap" rel="stylesheet">
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script src="javascript.js"></script>
+    <button onclick="location.reload()">Restart Game</button>
+   <h1 id="heading">Rock, Paper, Scissors, Lizard, Spock</h1>
+
+   <div id="button">
+       <img src="./rpc-images/rock.png" id="rock"/>
+       <img src="./rpc-images/paper.png" id="paper"/>
+       <img src="./rpc-images/scissors.png" id="scissors"/>
+       <img src="./rpc-images/lizard.png" id="lizard"/>
+       <img src="./rpc-images/spock.png" id="spock"/>
+   </div>
+
+   <div id="outcomes">
+      <div id="choices">
+          <h2 id="playerChoice"></h2>
+          <h2 id="computerChoice"></h2>
+      </div>
+      <h2 id="roundWinner"></h2>
+      <h2 id="pWinner"></h2>
+      <h2 id="cWinner"></h2>
+   </div>
+
+   <div id="scores">
+       <div class="player">
+           <p>Player Score</p>
+           <p id="playerScore">0</p>
+       </div>
+       <div class="computer">
+           <p>Computer Score</p>
+           <p id="computerScore">0</p>
+       </div>
+   </div>
+
+   <div id="rules">
+       <h3>Rules</h3>
+        <ul>
+            <li>Scissors Cuts Paper</li>
+            <li>Paper covers Rock</li>
+            <li>Rock crushes Lizard</li>
+            <li>Lizard poisons Spock</li>
+            <li>Spock smashes Scissors</li>
+            <li>Scissors decapitates Lizard</li>
+            <li>Lizard eats Paper</li>
+            <li>Paper disproves Spock</li>
+            <li>Spock vaporizes Rock</li>
+            <li>Rock crushes Scissors</li>
+        </ul>
+   </div>
+
+   
 </body>
 </html>
