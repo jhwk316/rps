@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(202, 213, 248);
+    font-family: 'Roboto', sans-serif;
+}
+
+#heading {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 76px;
+    border: dashed black;
+    color: rgb(59, 59, 59);
+}
+
+ul {
+    line-height: 28px;
+    list-style-type: none;
+}
+
+#button {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    margin: 5px;
+}
+
+#rock:active {
+    transform: scale(0.9);
+}
+
+#paper:active {
+    transform: scale(0.9);
+}
+#scissors:active {
+    transform: scale(0.9);
+}
+#lizard:active {
+    transform: scale(0.9);
+}
+#spock:active {
+    transform: scale(0.9);
+}
+
