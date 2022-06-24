@@ -2,63 +2,144 @@
 let userScore = 0; //keeps track of player score
 let cpuScore = 0; //keeps track of computer score
 
-function playRound (){
+
+const playerScore = document.querySelector('#playerScore');
+const computerScore = document.querySelector('#computerScore');
+const pWinner = document.querySelector('#pWinner');
+const cWinner = document.querySelector('#cWinner');
+const computerChoice = document.querySelector('#computerChoice');
+const playerChoice = document.querySelector('#playerChoice');
+const roundWinner = document.querySelector('#roundWinner');
+
+const selections = document.querySelector('#button')
+
+
 /*---------Player Selection Code---------*/
-let user = prompt("Enter Rock, Paper, or Scissors. \n 5-round match");
-    user = user.toLowerCase(); // makes user input case-insensitive
-    console.log("Player Choice " + user); 
+const rock = document.querySelector('#rock');
+    rock.addEventListener('click', () => {
+        playerChoice.textContent = 'Player Chooses Rock';
+        playRound('Rock');
+    });
+
+const paper = document.querySelector('#paper');
+    paper.addEventListener('click', () => {
+        playerChoice.textContent = "Player Chooses Paper";
+        playRound('Paper');
+
+    });
+
+const scissors = document.querySelector('#scissors');
+    scissors.addEventListener('click', () => {
+        playerChoice.textContent = "Player Chooses Scissors";
+        playRound('Scissors');
+    });
+    
+const lizard = document.querySelector('#lizard');
+    lizard.addEventListener('click', () => {
+        playerChoice.textContent = "Player Chooses Lizard";
+        playRound('Lizard');
+    });
+
+const spock = document.querySelector('#spock');
+    spock.addEventListener('click', () => {
+        playerChoice.textContent = "Player Chooses Spock";
+        playRound('Spock');
+    });
 
     /*---------Computer Selection Code---------*/
-let choice = ["rock", "paper", "scissors"];
-let cpu = choice[Math.floor(Math.random()*choice.length)]; //random computer choice. used .length so I can add additional options in the future without changing this line.
-    cpu = cpu.toLowerCase(); // array is already lowercase so not entirely necessary
-    console.log("Computer Choice " + cpu);    
+function computerPlay(){
+    let choice = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
+    const cpu = choice[Math.floor(Math.random()* 5)]; //random computer choice. used .length so I can add additional options in the future without changing this line.
+    computerChoice.textContent = 'Computer Chooses ' + cpu;
+        return cpu;
+        //console.log("Computer Choice " + cpu); 
+}
+    
 
     /*------Game Logic-------*/
+    function playRound (user, cpu){
+
+    cpu = computerPlay();
+
     if (user === cpu){
-        console.log("Tie");
+        roundWinner.textContent = "Tie? This isn't soccer...";
+        //console.log("Tie");
     }
 
-    else if ((user === "rock" && cpu === "scissors") ||
-             (user === "paper" && cpu === "rock") ||
-             (user === "scissors" && cpu === "paper")){
-                console.log("Player Wins")
-                return(userScore++);
+    else if ((user === "Rock" && cpu === "Scissors") ||
+             (user === "Rock" && cpu === "Lizard") ||
+             (user === "Paper" && cpu === "Rock") ||
+             (user === "Paper" && cpu === "Spock") ||
+             (user === "Scissors" && cpu == "Lizard") ||
+             (user === "Scissors" && cpu === "Paper") ||
+             (user === "Lizard" && cpu === "Spock") ||
+             (user === "Lizard" && cpu == "Paper") ||
+             (user === "Spock" && cpu === "Scissors") ||
+             (user === "Spock" && cpu == "Rock"))
+             {
+                roundWinner.textContent = 'Player Wins the Round';
+                //console.log("Player Wins")
+                userScore++;
+                playerScore.textContent = userScore;
             }
 
-    else if ((user === "rock" && cpu === "paper") ||
-             (user === "paper" && cpu === "scissors") ||
-             (user === "scissors" && cpu === "rock")){
-                console.log("Computer Wins")
-                return(cpuScore++);
-            }        
+    else if ((cpu === "Rock" && user === "Scissors") ||
+             (cpu === "Rock" && user === "Lizard") ||
+             (cpu === "Paper" && user === "Rock") ||
+             (cpu === "Paper" && user === "Spock") ||
+             (cpu === "Scissors" && user == "Lizard") ||
+             (cpu === "Scissors" && user === "Paper") ||
+             (cpu === "Lizard" && user === "Spock") ||
+             (cpu === "Lizard" && user == "Paper") ||
+             (cpu === "Spock" && user === "Scissors") ||
+             (cpu === "Spock" && user == "Rock"))
+            {
+       roundWinner.textContent = 'Computer Wins the Round';
+       //console.log("Computer Wins")
+       cpuScore++;
+       computerScore.textContent = cpuScore;
+   }     
 
     else {
         console.log("Oops!")
+        roundWinner = 'OOPS!'
     }        
+
+    game()
 }
 
 /*--------------Game Scoring------------*/
 function game(){
-    for(let i = 1; i < 6; i++){//5 round game
-        playRound();
-        console.log(userScore, cpuScore);
-}
+    const rock = document.querySelector('#rock');
+    const paper = document.querySelector('#paper');
+    const scissors = document.querySelector('#scissors');
+    const lizard = document.querySelector('#lizard');
+    const spock = document.querySelector('#spock');
+
 /*-------End Game Message--------*/
-    if(userScore > cpuScore) {
-        console.log("Player Wins Game");
-        alert("Congratulations! You Win");
+    if(userScore == 5) {
+        //console.log("Player Wins Game");
+        pWinner.textContent = 'I cannot defeat you... I bow to you master!';
+
+        rock.remove();
+        paper.remove();
+        scissors.remove();
+        lizard.remove();
+        spock.remove();
     }
 
-    else if (cpuScore > userScore) {
-        console.log("Computer Wins Game");
-        alert("Sorry! You Lose");
+    else if (cpuScore == 5) {
+        //console.log("Computer Wins Game");
+        cWinner.textContent = 'Hahaha... You Lose!  You bring shame to your family';
+
+        rock.remove();
+        paper.remove();
+        scissors.remove();
+        lizard.remove();
+        spock.remove();
     }
 
-    else {
-        console.log("Tie")
-        alert("Game ends in a tie!")
-    }
+  
 } 
 
-game();
+game()
