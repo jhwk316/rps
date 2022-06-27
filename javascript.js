@@ -5,17 +5,16 @@ let cpuScore = 0; //keeps track of computer score
 
 const playerScore = document.querySelector('#playerScore');
 const computerScore = document.querySelector('#computerScore');
-const pWinner = document.querySelector('#pWinner');
-const cWinner = document.querySelector('#cWinner');
+const pWinner = document.querySelector('#pWinner');//displays message if player wins
+const cWinner = document.querySelector('#cWinner');//displays message if computer wins
 const computerChoice = document.querySelector('#computerChoice');
 const playerChoice = document.querySelector('#playerChoice');
 const roundWinner = document.querySelector('#roundWinner');
 
+//displays restart button
 const selections = document.querySelector('#button')
-
 const newGame = document.querySelector('#playAgain');
     const playAgain = document.createElement('button');
-
 
 function restart() {
     window.location.reload();
