@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(202, 213, 248);
+    background:linear-gradient(rgba(152, 248, 255, 0.6), rgba(165, 255, 232, 0.6), rgba(222, 250, 195, 0.6));
     font-family: 'Roboto', sans-serif;
 }
 
@@ -7,18 +7,19 @@ body {
     text-align: center;
     margin-bottom: 50px;
     font-size: 76px;
-    border: dashed black;
+    border-top: solid rgb(53, 53, 53);
+    border-bottom: solid rgb(53, 53, 53);
     color: rgb(59, 59, 59);
 }
 
 ul {
     line-height: 28px;
-    list-style-type: none;
+    list-style-type: circle;
 }
 
 #button {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 img {
@@ -50,17 +51,47 @@ img {
     font-size: 24px;
 }
 
+#playerScore {
+    text-align: center;
+}
+
+#computerScore {
+    text-align: center;
+}
+
 .player {
+    text-align: center;
     color: blue;
+    background-color: white;
+    border: solid black;
+    border-radius: 10px;
+    padding: 1%;
+    width: 25%;
 }
 
 .computer {
-    color: orangered;
+    text-align: center;
+    color: red;
+    background-color: white;
+    border: solid black;
+    border-radius: 10px;
+    padding: 1%;
+    width: 25%;
 }
 
 #choices {
     display: flex;
     justify-content: space-around;
+}
+
+#choices > #playerChoice {
+    font-size: 24px;
+    color: blue;
+}
+
+#choices > #computerChoice {
+    font-size: 24px;
+    color: red;
 }
 
 #roundWinner {
@@ -83,6 +114,18 @@ img {
     font-size: 42px;
 }
 
+#playAgain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    
+}
+
+
+
+
+
 #rules {
     display: flex;
     flex-direction: column;
@@ -91,9 +134,9 @@ img {
     border: solid black;
     font-size: 16px;
     font-weight: 700;
-    background-color: rgb(239, 204, 253);
+    background-color: rgba(241, 231, 250,0.6);
     margin-bottom: 32px;
-    color: rgb(59, 59, 59);
+    color: rgb(53, 53, 53);
 }
 
 #rules > h3 {
@@ -102,18 +145,18 @@ img {
 }
 
 button {
-    color: blue;
+    color: white;
+    background-color: rgb(59, 59, 59);
     font-size: 15px;
     font-weight: 600;
     padding: 16px;
-    background-color: white;
     width: 100%;
 }
 button:active {
     transform: scale(0.95);
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     #button {
         flex-wrap: wrap;
     }

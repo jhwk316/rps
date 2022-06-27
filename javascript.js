@@ -13,6 +13,13 @@ const roundWinner = document.querySelector('#roundWinner');
 
 const selections = document.querySelector('#button')
 
+const newGame = document.querySelector('#playAgain');
+    const playAgain = document.createElement('button');
+
+
+function restart() {
+    window.location.reload();
+}
 
 /*---------Player Selection Code---------*/
 const rock = document.querySelector('#rock');
@@ -117,26 +124,71 @@ function game(){
     const spock = document.querySelector('#spock');
 
 /*-------End Game Message--------*/
-    if(userScore == 5) {
+    if(userScore == 5 && cpuScore > 0) {
         //console.log("Player Wins Game");
-        pWinner.textContent = 'I cannot defeat you... I bow to you master!';
+        pWinner.textContent = 'You have won this time! Care to challenge me again?';
 
         rock.remove();
         paper.remove();
         scissors.remove();
         lizard.remove();
         spock.remove();
+
+        playAgain.classList.add('newGame');
+        playAgain.textContent = 'Play Again?';
+
+        newGame.appendChild(playAgain);
+        newGame.addEventListener('click', restart);
     }
 
-    else if (cpuScore == 5) {
-        //console.log("Computer Wins Game");
-        cWinner.textContent = 'Hahaha... You Lose!  You bring shame to your family';
+    else if (userScore == 5 && cpuScore == 0) {
+        pWinner.textContent = 'YOU ARE A GOD!!';
 
         rock.remove();
         paper.remove();
         scissors.remove();
         lizard.remove();
         spock.remove();
+        
+        playAgain.classList.add('newGame');
+        playAgain.textContent = "One more? Please!";
+
+        newGame.appendChild(playAgain);
+        newGame.addEventListener('click', restart);
+    }
+
+    else if (cpuScore == 5 && userScore > 0) {
+        //console.log("Computer Wins Game");
+        cWinner.textContent = 'You Lose!  You bring shame to your family';
+
+        rock.remove();
+        paper.remove();
+        scissors.remove();
+        lizard.remove();
+        spock.remove();
+
+        playAgain.classList.add('newGame');
+        playAgain.textContent = 'Play Again?';
+
+        newGame.appendChild(playAgain);
+        newGame.addEventListener('click', restart);
+    }
+
+    else if (cpuScore == 5 && userScore == 0) {
+        //console.log("Computer Wins Game");
+        cWinner.textContent = 'Computer Wins: Flawless Victory!';
+
+        rock.remove();
+        paper.remove();
+        scissors.remove();
+        lizard.remove();
+        spock.remove();
+
+        playAgain.classList.add('newGame');
+        playAgain.textContent = 'Care to Lose Again?';
+
+        newGame.appendChild(playAgain);
+        newGame.addEventListener('click', restart);
     }
 
   
