@@ -125,7 +125,7 @@ function game(){
 /*-------End Game Message--------*/
     if(userScore == 5 && cpuScore > 0) {
         //console.log("Player Wins Game");
-        pWinner.textContent = 'You have won this time! Care to challenge me again?';
+        pWinner.textContent = 'You won this time! Care to challenge me again?';
 
         rock.remove();
         paper.remove();
@@ -150,7 +150,7 @@ function game(){
         spock.remove();
         
         playAgain.classList.add('newGame');
-        playAgain.textContent = "One more? Please!";
+        playAgain.textContent = "Prove It?";
 
         newGame.appendChild(playAgain);
         newGame.addEventListener('click', restart);
@@ -158,7 +158,7 @@ function game(){
 
     else if (cpuScore == 5 && userScore > 0) {
         //console.log("Computer Wins Game");
-        cWinner.textContent = 'You Lose!  You bring shame to your family';
+        cWinner.textContent =   'You bring shame to your family';
 
         rock.remove();
         paper.remove();
@@ -167,7 +167,7 @@ function game(){
         spock.remove();
 
         playAgain.classList.add('newGame');
-        playAgain.textContent = 'Play Again?';
+        playAgain.textContent = 'Revenge?';
 
         newGame.appendChild(playAgain);
         newGame.addEventListener('click', restart);
