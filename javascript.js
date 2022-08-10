@@ -21,6 +21,8 @@ function restart() {
 }
 
 /*---------Player Selection Code---------*/
+
+/*--Need to combine these into a single forEach statement-- */
 const rock = document.querySelector('#rock');
     rock.addEventListener('click', () => {
         playerChoice.textContent = 'Player Chooses Rock';
@@ -51,6 +53,8 @@ const spock = document.querySelector('#spock');
         playerChoice.textContent = "Player Chooses Spock";
         playRound('Spock');
     });
+
+
 
     /*---------Computer Selection Code---------*/
 function computerPlay(){
@@ -106,33 +110,29 @@ function computerPlay(){
        computerScore.textContent = cpuScore;
    }     
 
-    else {
-        console.log("Oops!")
-        roundWinner = 'OOPS!'
-    }        
+          
 
     game()
 }
 
 /*--------------Game Scoring------------*/
 function game(){
-    const rock = document.querySelector('#rock');
-    const paper = document.querySelector('#paper');
-    const scissors = document.querySelector('#scissors');
-    const lizard = document.querySelector('#lizard');
-    const spock = document.querySelector('#spock');
+
+function removeBtns() {
+    rock.remove();
+        paper.remove();
+        scissors.remove();
+        lizard.remove();
+        spock.remove();
+}
 
 /*-------End Game Message--------*/
     if(userScore == 5 && cpuScore > 0) {
         //console.log("Player Wins Game");
         pWinner.textContent = 'You won this time! Care to challenge me again?';
 
-        rock.remove();
-        paper.remove();
-        scissors.remove();
-        lizard.remove();
-        spock.remove();
-
+       
+        removeBtns();
         playAgain.classList.add('newGame');
         playAgain.textContent = 'Play Again?';
 
@@ -143,11 +143,7 @@ function game(){
     else if (userScore == 5 && cpuScore == 0) {
         pWinner.textContent = 'YOU ARE A GOD!!';
 
-        rock.remove();
-        paper.remove();
-        scissors.remove();
-        lizard.remove();
-        spock.remove();
+        removeBtns();
         
         playAgain.classList.add('newGame');
         playAgain.textContent = "Prove It?";
@@ -160,11 +156,7 @@ function game(){
         //console.log("Computer Wins Game");
         cWinner.textContent =   'You bring shame to your family';
 
-        rock.remove();
-        paper.remove();
-        scissors.remove();
-        lizard.remove();
-        spock.remove();
+        removeBtns();
 
         playAgain.classList.add('newGame');
         playAgain.textContent = 'Revenge?';
@@ -176,12 +168,7 @@ function game(){
     else if (cpuScore == 5 && userScore == 0) {
         //console.log("Computer Wins Game");
         cWinner.textContent = 'Computer Wins: Flawless Victory!';
-
-        rock.remove();
-        paper.remove();
-        scissors.remove();
-        lizard.remove();
-        spock.remove();
+        removeBtns();
 
         playAgain.classList.add('newGame');
         playAgain.textContent = 'Care to Lose Again?';
